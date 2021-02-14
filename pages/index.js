@@ -1,65 +1,85 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link';
+import SelectorIcon from 'heroicons/solid/selector.svg';
+import DotsHorizontalIcon from 'heroicons/solid/dots-horizontal.svg';
+
+function VercelLogo({ className }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 116 100"
+      fill="#000"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M57.5 0L115 100H0L57.5 0z"
+      />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+    <div>
+      <div className="bg-white">
+        <header>
+          <nav className="max-w-5xl mx-auto pt-5">
+            <div>
+              <VercelLogo className="h-6" />
+              <span>
+                <svg
+                  viewBox="0 0 32 32"
+                  stroke="currentColor"
+                  className="h-8 w-8 text-black"
+                >
+                  <line x1="8" y1="28" x2="24" y2="4" />
+                </svg>
+              </span>
+              <span>
+                <span>
+                  <img
+                    className="h-7 w-7 rounded-full border border-gray-200"
+                    src="https://pbs.twimg.com/profile_images/1105911738061340672/ZFvs2o-d_400x400.png"
+                    alt="Louis Wong"
+                  />
+                </span>
+                <span>Louis Wong</span>
+                <span>
+                  <SelectorIcon />
+                </span>
+              </span>
+            </div>
+            <div>
+              <button type="button">Feedback</button>
+              <Link href="#">
+                <a>Blog</a>
+              </Link>
+              <Link href="#">
+                <a>Changelog</a>
+              </Link>
+              <Link href="#">
+                <a>Support</a>
+              </Link>
+              <Link href="#">
+                <a>Docs</a>
+              </Link>
+              <button type="button">
+                <DotsHorizontalIcon />
+              </button>
+              <span>
+                <button type="button">
+                  <img
+                    src="https://pbs.twimg.com/profile_images/1105911738061340672/ZFvs2o-d_400x400.png"
+                    alt="Louis Wong"
+                  />
+                </button>
+              </span>
+            </div>
+          </nav>
+          <nav></nav>
+        </header>
+      </div>
     </div>
-  )
+  );
 }
