@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import SelectorIcon from 'heroicons/outline/selector.svg';
+import CogIcon from 'heroicons/outline/cog.svg';
 import DotsHorizontalIcon from 'heroicons/solid/dots-horizontal.svg';
+import PlusIcon from 'heroicons/solid/plus.svg';
+import Transition from '../components/Transition';
 
 function VercelLogo({ className }) {
   return (
@@ -21,10 +25,6 @@ function VercelLogo({ className }) {
 
 function GitHubLogo({ className }) {
   return (
-    // <svg className={className} fill="currentColor" viewBox="0 0 16 16">
-    //   <path d="M7.975 16a9.39 9.39 0 003.169-.509c-.473.076-.652-.229-.652-.486l.004-.572c.003-.521.01-1.3.01-2.197 0-.944-.316-1.549-.68-1.863 2.24-.252 4.594-1.108 4.594-4.973 0-1.108-.39-2.002-1.032-2.707.1-.251.453-1.284-.1-2.668 0 0-.844-.277-2.77 1.032A9.345 9.345 0 008 .717c-.856 0-1.712.113-2.518.34C3.556-.24 2.712.025 2.712.025c-.553 1.384-.2 2.417-.1 2.668-.642.705-1.033 1.612-1.033 2.707 0 3.852 2.342 4.72 4.583 4.973-.29.252-.554.692-.642 1.347-.58.264-2.027.692-2.933-.831-.19-.302-.756-1.045-1.549-1.032-.843.012-.34.478.013.667.428.239.919 1.133 1.032 1.422.201.567.856 1.65 3.386 1.184 0 .55.006 1.079.01 1.447l.003.428c0 .265-.189.567-.692.479 1.007.34 1.926.516 3.185.516z"></path>
-    // </svg>
-
     <svg
       className={className}
       fill="currentColor"
@@ -38,10 +38,15 @@ function GitHubLogo({ className }) {
   );
 }
 
-function Avatar({ src, alt = '' }) {
+function Avatar({ src, alt = '', size = 'md' }) {
+  const sizeClasses = {
+    sm: 'h-6 w-6',
+    md: 'h-8 w-8',
+  }[size];
+
   return (
     <img
-      className="h-8 w-8 rounded-full border border-gray-200"
+      className={`${sizeClasses} rounded-full border border-gray-200`}
       src={src}
       alt={alt}
     />
@@ -140,6 +145,87 @@ function ActivityFeedItem() {
   );
 }
 
+function AccountSwitcher() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="relative">
+      <span className="relative inline-flex items-center space-x-2 text-sm leading-5 font-medium">
+        <Link href="#">
+          <a className="inline-flex items-center space-x-2">
+            <span>
+              <Avatar
+                src="https://pbs.twimg.com/profile_images/1105911738061340672/ZFvs2o-d_400x400.png"
+                alt="Louis Wong"
+              />
+            </span>
+            <span>Louis Wong</span>
+          </a>
+        </Link>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          type="button"
+          className={`inline-flex items-center border ${
+            isOpen
+              ? 'border-gray-200 text-black'
+              : 'border-transparent text-gray-400'
+          } rounded p-0.5 hover:border-gray-200 hover:bg-gray-50 focus:outline-none focus:text-black focus:border-gray-200 focus:bg-gray-50 transition ease-in-out duration-150`}
+        >
+          <SelectorIcon className="h-5 w-5" />
+        </button>
+      </span>
+      <Transition
+        show={isOpen}
+        // enter="transition ease-out duration-100 transform"
+        // enterFrom="opacity-0 scale-95"
+        // enterTo="opacity-100 scale-100"
+        leave="transition ease-in duration-100 transform"
+        leaveFrom="opacity-100 translate-y-0"
+        leaveTo="opacity-0 -translate-y-2"
+      >
+        <div className="absolute w-56 rounded-md bg-white divide-y divide-gray-200 shadow-lg overflow-hidden">
+          <div className="py-2">
+            <div className="pt-3 px-4 pb-2 text-xs leading-5 uppercase tracking-wide text-gray-500">
+              Personal Account
+            </div>
+            <ul>
+              <li className="px-4 py-3 bg-gray-50">
+                <div className="flex items-center justify-between space-x-4">
+                  <Link href="#">
+                    <a className="flex items-center space-x-4 text-sm leading-5 text-gray-500 hover:text-black">
+                      <Avatar
+                        size="sm"
+                        src="https://pbs.twimg.com/profile_images/1105911738061340672/ZFvs2o-d_400x400.png"
+                        alt="Louis Wong"
+                      />
+                      <span>Louis Wong</span>
+                    </a>
+                  </Link>
+                  <div>
+                    <Link href="#">
+                      <a className="text-gray-300 hover:text-black">
+                        <CogIcon className="h-5 w-5 text-gray-400" />
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="py-2">
+            <Link href="#">
+              <a className="px-4 py-3 flex items-center justify-between text-sm leading-5 text-gray-500 hover:text-black">
+                <span>Create a Team</span>
+                <PlusIcon className="h-5 w-5" />
+              </a>
+            </Link>
+          </div>
+        </div>
+      </Transition>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div>
@@ -161,25 +247,7 @@ export default function Home() {
                   <line x1="10" y1="28" x2="22" y2="4" />
                 </svg>
               </span>
-              <span className="inline-flex items-center space-x-2 text-sm leading-5 font-medium">
-                <Link href="#">
-                  <a className="inline-flex items-center space-x-2">
-                    <span>
-                      <Avatar
-                        src="https://pbs.twimg.com/profile_images/1105911738061340672/ZFvs2o-d_400x400.png"
-                        alt="Louis Wong"
-                      />
-                    </span>
-                    <span>Louis Wong</span>
-                  </a>
-                </Link>
-                <button
-                  type="button"
-                  className="border border-transparent rounded p-0.5 hover:border-gray-200 hover:bg-gray-50 transition ease-in-out duration-150"
-                >
-                  <SelectorIcon className="h-5 w-5 text-gray-400" />
-                </button>
-              </span>
+              <AccountSwitcher />
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-5">
