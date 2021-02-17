@@ -23,6 +23,20 @@ function VercelLogo({ className }) {
   );
 }
 
+function VercelLogoFull() {
+  return (
+    <svg
+      role="img"
+      aria-label="Vercel Inc."
+      height="20"
+      viewBox="0 0 283 64"
+      fill="currentColor"
+    >
+      <path d="M37 0l37 64H0L37 0zM159.6 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7h28.3c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM267.3 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7H267c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM219.3 28.3l6.8-3.9c-3.2-5-8.9-7.8-15.8-7.8-10.9 0-18.5 7.2-18.5 17.5s7.6 17.5 18.5 17.5c6.9 0 12.6-2.8 15.8-7.8l-6.8-3.9c-1.8 3-5 4.7-9 4.7-6.3 0-10.5-4.2-10.5-10.5s4.2-10.5 10.5-10.5c3.9 0 7.2 1.7 9 4.7zM282.3 5.6h-8v45h8v-45zM128.5 5.6h-9.2L101.7 36 84.1 5.6h-9.3L101.7 52l26.8-46.4zM185.1 25.8c.9 0 1.8.1 2.7.3v-8.5c-6.8.2-13.2 4-13.2 8.7v-8.7h-8v33h8V36.3c0-6.2 4.3-10.5 10.5-10.5z"></path>
+    </svg>
+  );
+}
+
 function GitHubLogo({ className }) {
   return (
     <svg
@@ -50,6 +64,34 @@ function Avatar({ src, alt = '', size = 'md' }) {
       src={src}
       alt={alt}
     />
+  );
+}
+
+function SunSVG({ className }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      shapeRendering="geometricPrecision"
+      // style="color: currentcolor;"
+    >
+      <circle cx="12" cy="12" r="5"></circle>
+      <path d="M12 1v2"></path>
+      <path d="M12 21v2"></path>
+      <path d="M4.22 4.22l1.42 1.42"></path>
+      <path d="M18.36 18.36l1.42 1.42"></path>
+      <path d="M1 12h2"></path>
+      <path d="M21 12h2"></path>
+      <path d="M4.22 19.78l1.42-1.42"></path>
+      <path d="M18.36 5.64l1.42-1.42"></path>
+    </svg>
   );
 }
 
@@ -458,6 +500,110 @@ export default function Home() {
             </div>
           </div>
         </main>
+      </div>
+      <div className="bg-white">
+        <div className="max-w-5xl px-6 pt-9 pb-8 mx-auto ">
+          <div>
+            <footer aria-labelledby="footerHeading">
+              <div className="flex justify-between">
+                <div>
+                  <h3 className="mt-3 mb-5 text-black">Frameworks</h3>
+                  <ul className="text-sm leading-5 text-gray-500 space-y-4">
+                    <li className="">Next.js</li>
+                    <li className="">Create React App</li>
+                    <li className="">Gatsby</li>
+                    <li className="">Nuxt.js</li>
+                    <li className="">Vue</li>
+                    <li className="">Angular</li>
+                    <li className="">More Frameworks</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="mt-3 mb-5 text-black">Resources</h3>
+                  <ul className="text-sm leading-5 text-gray-500 space-y-4">
+                    <li className="">Documentation</li>
+                    <li className="">Guides</li>
+                    <li className="">Suport</li>
+                    <li className="">API Reference</li>
+                    <li className="">Blog</li>
+                    <li className="">Changelog</li>
+                    <li className="">OSS</li>
+                    <li className="">Command-Line</li>
+                    <li className="">Integrations</li>
+                    <li className="">Partners</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="mt-3 mb-5 text-black">Company</h3>
+                  <ul className="text-sm leading-5 text-gray-500 space-y-4">
+                    <li className="">Home</li>
+                    <li className="">About</li>
+                    <li className="">Careers</li>
+                    <li className="">Pricing</li>
+                    <li className="">Security</li>
+                    <li className="">Next.js Conf</li>
+                    <li className="">Contact Us</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="mt-3 mb-5 text-black">Legal</h3>
+                  <ul className="text-sm leading-5 text-gray-500 space-y-4">
+                    <li className="">Next.js</li>
+                    <li className="">Create React App</li>
+                    <li className="">Gatsby</li>
+                    <li className="">Nuxt.js</li>
+                    <li className="">Vue</li>
+                    <li className="">Angular</li>
+                    <li className="">More Frameworks</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="pt-10">
+                <VercelLogoFull />
+              </div>
+              <div className="py-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm leading-5 text-gray-500">
+                      Copyright © 2021 Vercel Inc. All rights reserved{' '}
+                    </p>
+                  </div>
+                  <div className="inline-flex space-x-4">
+                    <GitHubLogo className="h-5 w-5 text-gray-500" />
+                    <GitHubLogo className="h-5 w-5 text-gray-500" />
+                  </div>
+                  <div>
+                    <button
+                      type="button"
+                      className="border border-gray-200 rounded px-3 py-1.5 text-sm leading-5 text-black hover:border-black transition ease-in-out duration-150"
+                    >
+                      <div className="inline-flex items-center">
+                        <span>Feedback: </span>
+                        <div class="relative inline-block h-3 w-3 mx-2 rounded-full bg-blue-500 z-2"></div>
+                        <span className="text-blue-600 font-medium">
+                          All System normal
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      type="button"
+                      className="border border-gray-200 rounded px-3 py-1.5 text-sm leading-5 text-black hover:border-black transition ease-in-out duration-150"
+                    >
+                      <div className="inline-flex items-center">
+                        {/* <div class="relative inline-block h-3 w-3 mx-2 rounded-full border border-gray-500 bg-white z-2"></div> */}
+                        <SunSVG className="text-gray-500" />
+                        <span className="ml-2 mr-5">Light</span>
+                        <SelectorIcon className="h-5 w-5 text-gray-400" />
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
       </div>
     </div>
   );
